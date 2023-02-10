@@ -1,5 +1,5 @@
 !DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -14,25 +14,36 @@
     />
   </head>
   <body>
-    <div class="w3-bar w3-black">
-      <a href="#" class="w3-bar-item w3-button">Início</a>
-      <a href="#" class="w3-bar-item w3-button">Adicionar pessoa</a>
-      <a href="#" class="w3-bar-item w3-button">Listar pessoas</a>
-      <a href="#" class="w3-bar-item w3-button w3-right">Contato</a>
-      <a href="#" class="w3-bar-item w3-button w3-right">Sobre o site</a>
-      <a href="#" class="w3-bar-item w3-button w3-right">Notícias</a>
+    <div class="w3-bar w3-purple w3-mobile w3-xlarge">
+        <a href="index.html" class="w3-bar-item w3-button">Inicio</a>
+        <a href="adicionarPessoa.html" class="w3-bar-item w3-button">
+          Adicionar pessoa
+        </a>
+        <a href="listarPessoas.html" class="w3-bar-item w3-button">
+          Listar pessoas
+        </a>
+        <a href="contato.html" class="w3-bar-item w3-button w3-right">
+          Contato
+        </a>
+        <a href="sobre.html" class="w3-bar-item w3-button w3-right">
+          Sobre o site
+        </a>
+        <a href="noticias.html" class="w3-bar-item w3-button w3-right">
+          Notícias
+        </a>
       <main class="container-fluid">
         <h1>Formulário para editar pessoas:</h1>
         <section>
           <form action="">
             <div class="grid">
               <span>
-                <label for="nome">Seu Nomezinho*:</label>
+                <label for="nome">Seu nomezinho*:</label>
                 <input
-                  type="nome"
+                  type="text"
                   id="nome"
                   name="nome"
                   placeholder="Nome Completo"
+                  required
                 />
               </span>
               <span>
@@ -47,6 +58,7 @@
                   id="dataNascimento"
                   name="dataNascimento"
                   placeholder="dataNascimento"
+                  required
                 />
               </span>
             </div>
@@ -59,6 +71,7 @@
                     id="radio-1"
                     name="radio"
                     value="radio-1"
+                    required
                     checked
                   />
                   Masculino
