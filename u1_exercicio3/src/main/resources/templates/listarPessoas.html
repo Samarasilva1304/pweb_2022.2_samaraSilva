@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pWeb-by samaraSilva</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon" />
+    <!-- Pico.css -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css"
+    />
+    <meta codigoSecreto="1784725208">
+  </head>
+  <body>
+    <div class="w3-bar w3-black w3-xlarge">
+      <!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pWeb-by samaraSilva</title>
+    <link rel="stylesheet" th:href="@{/assets/favicon.ico}" />
+    <link rel="shortcut icon" th:href="@{/assets/w3.css}" />
+    <!-- Pico.css -->
+    <link rel="stylesheet"th:href="/@{assets/pico.min.css}"/>
+    <meta codigoSecreto="1784725208">
+  </head>
+  <body>
+    <a href="/" class="w3-mobile w3-bar-item w3-button">Inicio</a>
+
+<a href="/adicionarPessoa" class=" w3-mobile w3-bar-item w3-button w3-red">Adicionar pessoa</a>
+<a href="/listarPessoas" class=" w3-mobile w3-bar-item w3-button">Listar pessoas</a>
+<a href="/public/contato.html" class=" w3-mobile w3-bar-item w3-button w3-right">Contato</a>
+<a href="/public/sobre.html" class=" w3-mobile w3-bar-item w3-button w3-right">Sobre o site</a>
+<a href="/public/noticias.html" class=" w3-mobile w3-bar-item w3-button w3-right">Notícias</a>
+    </div>
+    <h1 style="text-align: center;">Listar Pessoas</h1>
+    <table>
+      <thead>
+        <tr th:each="umaPessoa: ${todasAsPessoas}">
+          <td th:text="${umaPessoa.id}"></td>
+          <td th:text="${umaPessoa.nome}"></td>
+          <td><a th:href=" 'mailton:'+${umaPessoa.email}" th:text="${umaPessoa.email}"></a></td>
+          <td th:text="${#temporals.format(umaPessoa.dataNascimento,'dd/MM/yyyy')}"></td>
+          <td th:text="${umaPessoa.genero}"></td>
+        
+          <td th:href="@{/editar/{id}(id=${umaPessoa})}">Editar</a></td>
+          <td th:href="@{/remover/{id}(id=${umaPessoa})}">Remover</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
