@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -47,4 +48,31 @@ public class PessoaController {
         this.pessoaRepo.save(p);
         return "redirect:/listarPessoas";
     }
-}
+    @GetMapping("/remover/{id}")
+   public ModelAndView removerPessoa(@PathVariable("id")long id){
+    Pessoa aRemover = pessoaRepo.findById(id)
+    .orElseThrow(()-> new IllegalArgumentException("inválido" + id));
+    
+    pessoaRepo.delete(aRemover);
+    return new ModelAndView("redirect:/listarPessoas");
+   }
+    
+   @GetMapping("/editar/{id}")
+  public ModelAndView formularioEditarPessoas(@PathVariable("id")long id) {
+    Pessoa aEditar = pessoaRepo.findById(id).orElseThrow(()-> new IllegalArgumentException("inválido" + id));
+     ModelAndView modelAndView = new ModelAndView("editarPessoa");
+    modelAndView.addObject(aEditar);
+    return modelAndView;
+  }
+  @PostMapping("/editar{id}")
+  public String EditarPessoa(@PathVariable("id")long id, Pessoa p){
+      this.pessoaRepo.save(p);
+      return "redirect:/listarPessoas";
+  }
+    }
+
+   
+  
+
+
+    
