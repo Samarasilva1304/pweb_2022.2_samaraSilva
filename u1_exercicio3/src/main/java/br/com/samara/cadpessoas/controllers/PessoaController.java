@@ -60,7 +60,7 @@ public class PessoaController {
    @GetMapping("/editar/{id}")
   public ModelAndView formularioEditarPessoas(@PathVariable("id")long id) {
     Pessoa aEditar = pessoaRepo.findById(id).orElseThrow(()-> new IllegalArgumentException("inválido" + id));
-     ModelAndView modelAndView = new ModelAndView("editarPessoa");
+    ModelAndView modelAndView = new ModelAndView("editarPessoa");
     modelAndView.addObject(aEditar);
     return modelAndView;
   }
